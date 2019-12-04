@@ -104,7 +104,7 @@ app.post("/delete",function(req, res){
 
 
 });
-app.get("/:listName", function(req,res){
+app.get("/list/:listName", function(req,res){
 const currentListName = _.lowerCase(req.params.listName);
   List.findOne({name:currentListName}, function(err, results) {
     if(!results){
@@ -113,7 +113,7 @@ const currentListName = _.lowerCase(req.params.listName);
         items: defaultItems
       });
       list.save();
-      res.redirect("/"+currentListName);
+      res.redirect("/list/"+currentListName);
     }else{
       console.log(results);
      res.render("list", {listTitle: currentListName, newListItems: results.items});
