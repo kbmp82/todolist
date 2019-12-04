@@ -70,7 +70,7 @@ List.findOne({name: listName},function(req,foundList){
   }else{
     foundList.items.push(item);
     foundList.save();
-    res.redirect("/"+listName);
+    res.redirect("/list/"+listName);
   }
 });
 });
